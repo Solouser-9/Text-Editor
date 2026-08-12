@@ -73,8 +73,6 @@ Contributions are welcome! Whether it’s fixing a bug, improving documentation,
 
    - Add comments or documentation where helpful.
 
-   - Run and test your changes before submitting.
-
-   - Be respectful and constructive in discussions.  
+   - Run and test your changes before submitting. 
 
 >  Tip: You can also use the Gitpod or Codespaces badges above to spin up a cloud workspace instantly and contribute without setting up locally.
