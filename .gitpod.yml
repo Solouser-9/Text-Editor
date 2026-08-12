@@ -5,4 +5,4 @@ tasks:
 
 ports:
   - port: 3000
-    onOpen: open-preview         # automatically open the app in Gitpod's preview browser
+    onOpen: open-browser         # open in a full browser tab instead of Gitpod preview
