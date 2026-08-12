@@ -1,3 +1,8 @@
+# .gitpod.yml
 tasks:
-  - init: npm install   # runs once when workspace is created
-  - command: npm start  # runs every time workspace starts
+  - init: npm install -g serve   # install a lightweight static server
+  - command: serve .             # serve your project files
+
+ports:
+  - port: 3000
+    onOpen: open-preview         # automatically open the app in Gitpod's preview browser
