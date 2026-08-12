@@ -1,0 +1,3 @@
+tasks:
+  - init: npm install   # runs once when workspace is created
+  - command: npm start  # runs every time workspace starts
