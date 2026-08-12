@@ -1,0 +1,262 @@
+/*Define Default (Light Mode) Colors - These are the original colors */
+:root {
+  --bg-color: #338cf4;
+  --container-bg: #ffffff;
+  --text-color: #020929;
+  --border-color: #dddddd;
+  --btn-bg: #ffffff;
+  --active-bg: #e0e9ff;
+}
+
+/*Define Dark Mode Colors */
+body.dark-mode {
+  --bg-color: #121212;
+  --container-bg: #1e1e1e;
+  --text-color: #f1f1f1;
+  --border-color: #444444;
+  --btn-bg: #333333;
+  --active-bg: #5a21c5;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg-color); /* Uses variable */
+  transition: background-color 0.3s ease;
+}
+.container {
+  background-color: var(--container-bg);
+  width: 90vmin;
+  padding: 50px 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+button {
+  height: 28px;
+  width: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  border: none;
+  background-color: var(--btn-bg);
+  outline: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+select {
+  padding: 7px;
+  border: 1px solid var(--text-color);
+  border-radius: 3px;
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+}
+.options label,
+.options select {
+  font-family: "Poppins", sans-serif;
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color);
+}
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 40px;
+  height: 28px;
+  border: none;
+  cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 15px;
+  box-shadow: 0 0 0 2px var(--btn-bg), 0 0 0 3px var(--text-color);
+}
+input[type="color"]::-moz-color-swatch {
+  border-radius: 15px;
+  box-shadow: 0 0 0 2px var(--btn-bg), 0 0 0 3px var(--text-color);
+}
+#text-input {
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  min-height: 50vh;    /* Starts at 50% screen height */
+  max-height: 75vh;    /* Never grows beyond 80% screen height */
+  height: auto;        /* Grows with content */
+  overflow-y: auto;    /* Scrolls when max-height is reached */
+  color: var(--text-color);
+}
+.active {
+  background-color: var(--active-bg);
+}
+#theme-toggle {
+  width: auto; 
+  padding: 0 10px;
+  margin-left: auto; 
+  border: 1px solid var(--text-color);
+}
+#print-button {
+  width: auto;
+  padding: 0 10px;
+  margin-left: 8px;
+  border: 1px solid var(--text-color);
+}
+#save-html-button {
+  width: auto;
+  padding: 0 10px;
+  margin-left: 8px;
+  border: 1px solid var(--text-color);
+}
+#insert-image-button {
+  width: auto;
+  padding: 0 10px;
+  margin-left: 8px;
+  border: 1px solid var(--text-color);
+}
+/* Hide the actual file input */
+#image-input {
+  display: none;
+}
+
+/* Make images fit nicely inside the editor */
+#text-input img {
+  min-height: 50%;
+  max-height: 100%;  
+  min-width: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+/* ==========================================
+   Home Button
+   ========================================== */
+#home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: auto;
+  width: auto;
+  padding: 10px 18px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(7, 20, 35, 0.2);
+  transition: all 0.3s ease;
+}
+
+#home-button:hover {
+  background-color: var(--active-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(7, 20, 35, 0.3);
+}
+/* ==========================================
+   Print Styles (Saves Formatting & Highlights to PDF)
+   ========================================== */
+@media print {
+  /* Hide the toolbar */
+  .options {
+    display: none !important;
+  }
+
+  /* Make background white */
+  body {
+    background-color: #ffffff !important;
+  }
+
+  /* Make container normal for printing */
+  .container {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Make the editor area look like a normal document */
+  #text-input {
+    height: auto !important;
+    min-height: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* FORCE BROWSER TO PRINT HIGHLIGHTS AND COLORS */
+  #text-input, 
+  #text-input * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Preserve formatting spacing */
+  #text-input p, 
+  #text-input h1, 
+  #text-input h2, 
+  #text-input h3, 
+  #text-input h4, 
+  #text-input h5, 
+  #text-input h6,
+  #text-input div {
+    margin: 0 0 10px 0 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Keep lists readable */
+  #text-input ul,
+  #text-input ol {
+    padding-left: 20px !important;
+    margin: 0 0 10px 0 !important;
+  }
+
+  #text-input img {
+  max-width: 70% !important;
+  height: auto !important;
+  page-break-inside: avoid;
+}
+#home-button {
+  display: none !important;
+}
+
+  /* Add page margins */
+  @page {
+    margin: 2cm;
+  }
+}

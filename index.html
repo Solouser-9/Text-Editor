@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimplyWrite</title>
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       Theme Variables
+       ========================================== */
+    :root {
+      --bg-color: #338cf4;
+      --container-bg: #ffffff;
+      --text-color: #020929;
+      --border-color: #dddddd;
+      --btn-bg: #ffffff;
+      --active-bg: #e0e9ff;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --container-bg: #1e1e1e;
+      --text-color: #f1f1f1;
+      --border-color: #444444;
+      --btn-bg: #333333;
+      --active-bg: #3a3a3a;
+    }
+
+    /* ==========================================
+       Reset & Base
+       ========================================== */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      transition: background-color 0.3s ease;
+      font-family: "Poppins", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================
+       PULSE ANIMATION
+       ========================================== */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 50px rgba(51, 140, 244, 0.5);
+      }
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 80px rgba(51, 140, 244, 0.8);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 50px rgba(51, 140, 244, 0.5);
+      }
+    }
+
+    /* ==========================================
+       Theme Toggle 
+       ========================================== */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(--container-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+
+      box-shadow: 0 4px 15px rgba(7, 20, 35, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+      background-color: var(--active-bg);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================
+       Landing Card
+       ========================================== */
+    .container {
+      background-color: var(--container-bg);
+      width: 90vmin;
+      max-width: 520px;
+      padding: 50px 40px;
+      border-radius: 15px;
+      box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .icon-circle {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background-color: #338cf4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #ffffff;
+
+      /* This activates the pulse animation */
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    h1 {
+      color: var(--text-color);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: var(--text-color);
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      color: var(--text-color);
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+
+    /* ==========================================
+       Enter Editor Button
+       ========================================== */
+    .enter-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-top: 25px;
+      padding: 14px 28px;
+
+      background-color: #338cf4;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+
+      box-shadow: 0 4px 15px rgba(51, 140, 244, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .enter-button:hover {
+      background-color: #1e6fd9;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(51, 140, 244, 0.5);
+    }
+
+    .enter-button:active {
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" title="Toggle Theme">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <!-- Landing card -->
+  <div class="container">
+
+    <div class="icon-circle">
+      <i class="fa-solid fa-pen-nib"></i>
+    </div>
+
+    <h1>SimplyWrite</h1>
+
+    <p class="tagline">Write. Format. Save.</p>
+
+    <p class="description">
+      A clean and simple rich text editor. Format your text, insert images,
+      switch between light and dark mode, and export your work as PDF or HTML.
+    </p>
+
+    <!-- Clickable text to enter the editor -->
+    <a href="editor.html" class="enter-button">
+      <i class="fa-solid fa-arrow-right-to-bracket"></i>
+      Click here to enter the editor
+    </a>
+
+  </div>
+
+  <script>
+    // ==========================================
+    // Theme Toggle & localStorage Logic
+    // ==========================================
+    let themeToggle = document.getElementById("theme-toggle");
+    let bodyElement = document.body;
+
+    // Read the saved theme
+    let savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      bodyElement.classList.add("dark-mode");
+      let icon = themeToggle.querySelector("i");
+      if (icon) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
+    }
+
+    // Toggle theme on click
+    themeToggle.addEventListener("click", () => {
+      bodyElement.classList.toggle("dark-mode");
+
+      let icon = themeToggle.querySelector("i");
+
+      if (bodyElement.classList.contains("dark-mode")) {
+        if (icon) {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        }
+        localStorage.setItem("theme", "dark");
+      } else {
+        if (icon) {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
+
+</body>
+</html>
