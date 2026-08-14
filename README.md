@@ -11,6 +11,36 @@ Launch instantly in the cloud — no downloads required.
 
 >  Works on desktop and mobile. On phones, the editor opens in a browser tab for easy use.
 --- 
+
+## Features
+
+- **Rich Text Formatting**  
+  Bold, italic, underline, strikethrough, superscript, subscript, alignment, and spacing controls.
+
+-  **Font & Color Options**  
+  Choose from multiple fonts, adjust font size, and customize text and highlight colors.
+
+-  **Dark/Light Theme Toggle**  
+  Switch themes instantly, with your preference saved in local storage.
+
+-  **Auto-Save & Restore**  
+  Content and settings are automatically saved and restored when you reopen the editor.
+
+-  **Insert Images**  
+  Upload and embed images directly into your document (with size validation).
+
+-  **Export Options**  
+  - Print or save as PDF (preserves formatting and highlights).  
+  - Save as a standalone HTML file with clean structure.
+
+-  **Home Button**  
+  Quick navigation back to the main index page.
+
+-  **Validation & Safety**  
+  - Prevents saving empty documents.  
+  - Ensures safe filenames when exporting.  
+  - Limits image uploads to 5MB for performance.
+
 ## Getting Started
 
 You can launch this project instantly in the cloud using the badges above.  
